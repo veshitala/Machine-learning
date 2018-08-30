@@ -1,2 +1,2 @@
-# hello-world
-This repository is used to showcase machine learning codes.
+## Machine learning repository
+This repository presents various examples of machine learning codes I've worked on.

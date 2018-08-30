@@ -7,5 +7,5 @@ The input data files can be downloaded from the linked to the Kaggle website.
 
 - Methods: Use Xception module (from Keras) and modify the top fully-connected layers
 
-- Results: We can achieve quite high accuracy (~%98) with this simple treatment
+- Results: We can achieve quite high accuracy (~ %98) with this simple treatment
 

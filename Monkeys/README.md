@@ -9,3 +9,4 @@ The input data files can be downloaded from the linked to the Kaggle website.
 
 - Results: We can achieve quite high accuracy (~ %98) with this simple treatment
 
+- Requirements: Keras, Tensorflow (backend)

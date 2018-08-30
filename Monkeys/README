@@ -1,6 +1,0 @@
-# 10 Monkey species
-
-Based on [LINK TEXT](https://www.kaggle.com/slothkong/10-monkey-species)
-
-We import the Xception module and modify the top fully-connected layer
-to predict the species of the monkey shown in the image.

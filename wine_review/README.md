@@ -1,5 +1,5 @@
-This is an analysis of the dataset that was posted on Kaggle:
-https://www.kaggle.com/zynicide/wine-reviews
+## Wine review
+Based on: https://www.kaggle.com/zynicide/wine-reviews
 
 The input data files can be downloaded from the linked to the Kaggle website. 
 

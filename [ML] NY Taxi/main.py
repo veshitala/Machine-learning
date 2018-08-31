@@ -57,21 +57,21 @@ print(clf.best_score_)
 print(clf.best_params_)
 print 'elapsed time: {0:.1f} s'.format(end - start)
 
-# ## Contour plot of gridsearch result
-# scores = clf.cv_results_['mean_test_score'].\
-#     reshape(len(depths), len(alphas))
+## Contour plot of gridsearch result
+scores = clf.cv_results_['mean_test_score'].\
+    reshape(len(depths), len(alphas))
 
-# plt.figure(figsize=(8,6))
-# plt.imshow(scores, cmap='hot')
-# # First variable
-# plt.xlabel('reg_alpha')
-# # Second variable
-# plt.ylabel('max_depth')
-# plt.colorbar()
-# plt.xticks(np.arange(len(alphas)), alphas, rotation=45)
-# plt.yticks(np.arange(len(depths)), depths)
-# plt.title('Validation accuracy')
-# # plt.show()
+plt.figure(figsize=(8,6))
+plt.imshow(scores, cmap='hot')
+# First variable
+plt.xlabel('reg_alpha')
+# Second variable
+plt.ylabel('max_depth')
+plt.colorbar()
+plt.xticks(np.arange(len(alphas)), alphas, rotation=45)
+plt.yticks(np.arange(len(depths)), depths)
+plt.title('Validation accuracy')
+# plt.show()
 
 
 best_alpha = clf.best_params_['reg_alpha']
@@ -106,4 +106,4 @@ end = time.time()
 print "rmsle", rmsle(ypred, yv)
 print 'elapsed time: {0:.1f} min'.format((end - start)/60.0)
 
-# plt.show()
+plt.show()

@@ -25,13 +25,14 @@ df.loc[:,'day_of_week'] = df.pickup_datetime.dt.dayofweek
 ## Zoning
 
 # Check the relative distribution of pickup and dropoff locations
-# sample = df.sample(n=2500)
+sample = df.sample(n=2500)
 
-# plt.figure()
-# plt.scatter(sample.pickup_longitude, sample.pickup_latitude,   s=3)
-# plt.scatter(sample.dropoff_longitude, sample.dropoff_latitude, s=3)
+plt.figure()
+plt.scatter(sample.pickup_longitude, sample.pickup_latitude,   s=3)
+plt.scatter(sample.dropoff_longitude, sample.dropoff_latitude, s=3)
 
-# plt.show()
+plt.show()
+
 
 from sklearn.cluster import KMeans
 
@@ -43,27 +44,29 @@ df.loc[:,'pickup_zones'] = \
 df.loc[:,'dropoff_zones'] = \
     kmeans.predict(df.loc[:, 'dropoff_longitude':'dropoff_latitude'])
 
-# sample = df.sample(n=2500)
+# Check how the zoning worked    
+sample = df.sample(n=2500)
 
-# plt.figure()
-# for k in xrange(50):
-#     zone = sample[sample.pickup_zones == k]
-#     plt.scatter(zone.pickup_longitude, zone.pickup_latitude,\
-#                 s=3) 
+plt.figure()
+for k in xrange(50):
+    zone = sample[sample.pickup_zones == k]
+    plt.scatter(zone.pickup_longitude, zone.pickup_latitude,\
+                s=3) 
 
-# plt.figure()
-# for k in xrange(50):
-#     zone = sample[sample.dropoff_zones == k]
-#     plt.scatter(zone.dropoff_longitude, zone.dropoff_latitude,\
-#                 s=3) 
+plt.figure()
+for k in xrange(50):
+    zone = sample[sample.dropoff_zones == k]
+    plt.scatter(zone.dropoff_longitude, zone.dropoff_latitude,\
+                s=3) 
 
-# plt.show()
+plt.show()
 
 # Calculate the cartesian distance between pick-up and drop-off locations
 df.loc[:, 'distance'] = \
     np.sqrt((df.loc[:,'pickup_longitude'] - df.loc[:,'dropoff_longitude'])**2
            +(df.loc[:,'pickup_latitude']  - df.loc[:,'dropoff_latitude'])**2)
 
+# Remove the date-time objects and other misc. columns
 df.drop(['id','pickup_datetime','dropoff_datetime','store_and_fwd_flag'],\
     inplace=True, axis=1)
 

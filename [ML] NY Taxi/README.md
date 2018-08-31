@@ -10,4 +10,4 @@ The input data files can be downloaded from the linked to the Kaggle website.
 
 - Finally, XGBoost is used to carry out regression on the input data.
 
-- *preprocess.py* generates additional features and *main.py* fits the xgboost model
+- *preprocess.py* generates additional features / *main.py* fits the xgboost model

@@ -1,3 +1,10 @@
+"""
+- Generates additional features from the raw data
+- Create day-of-week/time-of-day features
+- Uses the longitude and latitude of the pick-up/drop-off location
+  to designate "zones"
+"""
+
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt

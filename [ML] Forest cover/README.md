@@ -1,6 +1,6 @@
 ## Forest cover type
 
-_tags: EDA, classification_
+_tags: exploratory data analysis, classification_
 
 Based on: https://www.kaggle.com/c/forest-cover-type-kernels-only
 

@@ -1,5 +1,7 @@
 ## NY Taxi duration
 
+_tags: regression, feature engineering
+
 Based on: https://www.kaggle.com/c/nyc-taxi-trip-duration
 
 The input data files can be downloaded from the linked to the Kaggle website. 

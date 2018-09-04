@@ -1,5 +1,7 @@
 ## Forest cover type
 
+_tags_: EDA, classification
+
 Based on: https://www.kaggle.com/c/forest-cover-type-kernels-only
 
 The input data files can be downloaded from the linked to the Kaggle website. 

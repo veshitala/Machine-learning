@@ -1,4 +1,7 @@
 ## Wine review
+
+_tags: tf-idf, natural language processing, text mining_
+
 Based on: https://www.kaggle.com/zynicide/wine-reviews
 
 The input data files can be downloaded from the linked to the Kaggle website. 

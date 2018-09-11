@@ -6,7 +6,7 @@ Based on: https://www.kaggle.com/c/home-credit-default-risk
 
 The input data files can be downloaded from the linked to the Kaggle website. 
 
-- The goal is to predict the likelihood of loan candidates defaulting based on their credit history and past loan payment history
+- The goal is to predict the likelihood of loan candidates defaulting based on their credit and loan payment history
 
 - Raw data is manipulated to generate new features
 

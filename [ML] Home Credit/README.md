@@ -1,6 +1,6 @@
 ## Home Credit Default Risk
 
-_tags: classification, large dataset, database_
+_tags: classification, large dataset, relational database_
 
 Based on: https://www.kaggle.com/c/home-credit-default-risk
 

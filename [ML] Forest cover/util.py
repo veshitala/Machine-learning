@@ -48,7 +48,7 @@ def plot_confusion_matrix(cm, target_names,title='Confusion matrix',cmap=None,no
         plt.yticks(tick_marks, target_names)
 
     if normalize:
-        cm = cm.astype('float32') / cm.sum(axis=1)
+        cm = cm.astype('float32') / cm.sum(axis=1)[:, np.newaxis]
         cm = np.round(cm,2)
         
 

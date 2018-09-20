@@ -1,5 +1,5 @@
 ## Costa Rican Household Poverty Level Prediction
-_tags: multiclass_
+_tags: multiclass, tabular data_
 
 Based on: https://www.kaggle.com/c/costa-rican-household-poverty-prediction
 

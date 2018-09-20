@@ -11,7 +11,24 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 from util import *
 
+ID = 'Id'
+TARGET = 'Cover_Type'
 NUM_CLASS = 7
+
+def generate_pca_features(df):
+
+    pca   = PCA()
+    X_pca = pca.fit_transform(StandardScaler().fit_transform(df.drop(ID, axis=1)))
+
+    # Select number of features that can explain 95% of variance
+    num_feature = (pca.explained_variance_ratio_.cumsum() < 0.90).argmin()
+
+    df_pca = pd.DataFrame({ID: df[ID]})
+    for i in range(num_feature):
+        c_name = 'pca' + str(i)
+        df_pca[c_name] = X_pca[:, i]
+
+    return df_pca
 
 def build_model_input():
 
@@ -20,7 +37,7 @@ def build_model_input():
 
     all_data = pd.concat([train.drop('Cover_Type', axis=1), test], axis=0)
 
-    print('Feature engineering')
+    print('Manual feature engineering')
     all_data['HF1'] = all_data['Horizontal_Distance_To_Hydrology'] + all_data['Horizontal_Distance_To_Fire_Points']
     all_data['HF2'] = all_data['Horizontal_Distance_To_Hydrology'] - all_data['Horizontal_Distance_To_Fire_Points']
     all_data['HR1'] = all_data['Horizontal_Distance_To_Hydrology'] + all_data['Horizontal_Distance_To_Roadways']
@@ -33,7 +50,11 @@ def build_model_input():
     all_data['mean_FHR'] = (all_data['Horizontal_Distance_To_Fire_Points']\
                           + all_data['Horizontal_Distance_To_Hydrology']\
                           + all_data['Horizontal_Distance_To_Roadways']) / 3
-
+    
+    print('Add PCA features')
+    pca = generate_pca_features(all_data)
+    all_data = all_data.merge(pca, on='Id')
+    
     data = all_data.iloc[:len(train)]
     test = all_data.iloc[len(train):]
 
@@ -51,7 +72,7 @@ def train_model(data_, test_, y_, folds_):
 
     feature_importance_df = pd.DataFrame()
 
-    feats = [f for f in data_.columns if f not in ['Id']]
+    feats = [f for f in data_.columns if f not in [ID]]
 
     print('Training model')
     for n_fold, (trn_idx, val_idx) in enumerate(folds_.split(data_, y_)):
@@ -99,7 +120,7 @@ def train_model(data_, test_, y_, folds_):
     
     print(len(feats), feature_importance_df.shape)
 
-    return data_pred, test_[['Id', 'Cover_Type']], feature_importance_df
+    return data_pred, test_[[ID, TARGET]], feature_importance_df
 
 def display_importance(feature_importance_df_):
     
@@ -155,7 +176,6 @@ if __name__ == '__main__':
     # Evaluate macro f1_score for training data
     print('Macro f1-score is.. ', f1_score(y, data_pred, average=None))
     print('Accuracy is.. ', accuracy_score(y, data_pred))
-
 
     plt.show()
 

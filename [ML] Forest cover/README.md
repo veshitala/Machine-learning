@@ -10,4 +10,4 @@ The input data files can be downloaded from the linked to the Kaggle website.
 
 - We use PCA and manual feature engeneering to generate new features
 
-- We use lightGBM, ExtraTreeClassifier, and RandomForestClassifier to generate "scores" for each class and use those as input for xgboost to generate the predictions
+- We use lightGBM, ExtraTreeClassifier, and RandomForestClassifier to generate scores that are used as input for xgboost to generate the predictions

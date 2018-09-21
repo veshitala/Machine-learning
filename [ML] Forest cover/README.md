@@ -1,6 +1,6 @@
 ## Forest cover type
 
-_tags: multiclass, tabular data_
+_tags: ensemble/stacking method, multiclass, tabular data_
 
 Based on: https://www.kaggle.com/c/forest-cover-type-kernels-only
 
@@ -10,4 +10,4 @@ The input data files can be downloaded from the linked to the Kaggle website.
 
 - We use PCA and manual feature engeneering to generate new features
 
-- *util.py* contains functions for plotting confusion matrix and scatter plots of the data
+- We use lightGBM, ExtraTreeClassifier, and RandomForestClassifier to generate "scores" for each class and use those as input for xgboost to generate the predictions

@@ -10,6 +10,8 @@ The input data files can be downloaded from the linked to the Kaggle website.
 
 - We use PCA and manual methods to create new features
 
-- We use lightGBM, extra random trees classifier, and random forest classfiers to generate scores that are used as features for the XGBoost classifier
+- We use _stacking_ to combine the output (class probability) generated via lightGBM, extra random trees, and random forest classfiers as features for the XGBoost classifier
+
+- Each model (lightGBM, ExtraTrees, RandomForest) are sensitive to slightly different elements of the input data. By combining the results from different models, we are able to get a model that has better predictive power. 
 
 

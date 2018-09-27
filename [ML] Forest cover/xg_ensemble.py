@@ -42,7 +42,7 @@ def build_model_input():
 
     all_data = pd.concat([train.drop('Cover_Type', axis=1), test], axis=0)
 
-    print('Feature engineering')
+    print('Manual feature engineering')
     all_data['HF1'] = all_data['Horizontal_Distance_To_Hydrology'] + all_data['Horizontal_Distance_To_Fire_Points']
     all_data['HF2'] = all_data['Horizontal_Distance_To_Hydrology'] - all_data['Horizontal_Distance_To_Fire_Points']
     all_data['HR1'] = all_data['Horizontal_Distance_To_Hydrology'] + all_data['Horizontal_Distance_To_Roadways']

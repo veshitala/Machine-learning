@@ -227,7 +227,7 @@ if __name__ == '__main__':
     #Train model
     x_train, x_test = train_1st_level(x_train, x_test, y_train, folds)
     y_test = train_2nd_level(x_train, x_test, y_train, folds)
-
+    # Generate submission file
     submission = pd.read_csv('../input/sample_submission.csv')
     submission.iloc[:, 1] = y_test
     submission.to_csv('submission.csv', index=None)    

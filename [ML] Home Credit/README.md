@@ -8,7 +8,7 @@ The input data files can be downloaded from the linked to the Kaggle website.
 
 - The goal is to predict the likelihood of loan candidates defaulting based on their credit and loan payment history
 
-- Raw data is manipulated to generate new features
+- Customer data and credit histories are distributed over multiple databases that were indexed like an SQL database that had to be aggregated to generate features.
 
 - A gradient boosted tree method (LightGBM) is used to model the data
 

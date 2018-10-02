@@ -36,7 +36,7 @@ def build_model():
         keras.layers.Dense(10, activation=tf.nn.softmax)
     ])
 
-    print(model.layers)
+    print(model.summary())
 
     model.compile(optimizer=tf.train.AdamOptimizer(),
                   loss='sparse_categorical_crossentropy',
@@ -72,3 +72,5 @@ if __name__ == '__main__':
     evaluate_model(model, x_test, y_test)
     # Display predictions
     display_predictions(model, x_test, y_test)
+
+    
